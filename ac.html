@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Web SmartHome Demo 02</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta property="og:title" content="Web SmartHome 02">
+    <meta property="og:image" content="http://litelite.net/img/icon_02.png">
+    <meta property="og:description" content="Web SmartHome Demo Controller 02">
+
+    <script src="http://www.polymer-project.org/1.0/samples/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!--<script src="webcomponentsjs/webcomponents.js"></script>-->
+    <link rel="import" href="ble-components.html">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+    body {
+      background-color: #eee;
+      background-image: linear-gradient(180deg, rgba(150, 150, 0, 1) 0%, rgba(255, 255, 0, 0.5) 50%, rgba(150, 150, 0, 1));
+      background-position: top left;
+      background-size: cover;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    h1,h2 {
+      color: #fff;
+    }
+    </style>
+  </head>
+  <body>
+
+  <h1 style="text-align:center;">Web SmartHome</h1>
+  <h2 style="text-align:center;">Demo Controller 02</h2>
+
+  <hr />
+  <br />
+
+  <ble-service uuid="405E7866-A0CB-4006-B75B-2796687D8FBD">
+
+    <div style="text-align:center;">
+
+    <ble-state default-text="NO CONNECTION" 
+      idle-text="NO CONNECTION" 
+      scanning-text="SEARCHING" 
+      connected-text="CONNECTED" 
+      error-text="ERROR"></ble-state> 
+    </div>
+      
+    <br />
+    <hr />
+    <br />
+
+    <div id="content" style="text-align: center;">
+
+    <p>Current Temperature</p>
+
+    <ble-observer uuid="573B455B-6E54-4BD4-B63A-8C5DF4713746" default="-"> 
+    </ble-observer>
+
+    <br />
+    <br />
+    <br />
+
+    <hr />
+    <br />
+
+    <p>Setting Temperature</p>
+
+    <ble-setter uuid="5D0FEA1B-A2FC-4E41-9D85-FC76048C8CE1" data="0" display="&lt;"></ble-setter>
+    <ble-observer uuid="02A7DBEE-7AE0-4CDB-A3CE-A2F3E6944C90" default="-"></ble-observer> 
+    <ble-setter uuid="5D0FEA1B-A2FC-4E41-9D85-FC76048C8CE1" data="1" display="&gt;"></ble-setter>
+
+    <br />
+    <br />
+    <br />
+
+    <hr />
+    <br />
+
+  </div>
+
+  </ble-service>
+
+  </body>
+</html>
+

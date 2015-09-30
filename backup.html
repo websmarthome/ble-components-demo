@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>BLEテレビリモコン</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta property="og:title" content="BLEテレビリモコン">
+    <meta property="og:image" content="http://litelite.net/img/controller.jpg">
+    <meta property="og:description" content="BLEテレビリモコン">
+
+    <script src="http://www.polymer-project.org/1.0/samples/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!--<script src="webcomponentsjs/webcomponents.js"></script>-->
+    <link rel="import" href="ble-components.html">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+    body {
+      background-image: url(img/bg_metal.jpg);
+      margin: 0;
+    }
+    </style>
+  </head>
+  <body>
+
+  <h1 style="text-align:center;">TV Controller</h1>
+
+  <hr />
+  <br />
+
+  <ble-service uuid="7F93D614-920A-48B0-8910-B3694E06E0FA">
+
+    <ble-state default-text="接続されていません" 
+      idle-text="接続されていません" 
+      scanning-text="接続先を探しています" 
+      connected-text="接続されています" 
+      error-text="エラーが発生しました" /> 
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="01" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="02" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="03" />
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="04" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="05" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="06" />
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="07" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="08" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="09" />
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="10" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="11" />
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="12" />
+
+  </ble-service>
+
+  </body>
+</html>
+

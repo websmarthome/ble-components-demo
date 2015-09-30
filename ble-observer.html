@@ -1,0 +1,47 @@
+<link rel="import"
+href="http://www.polymer-project.org/1.0/samples/components/polymer/polymer.html">
+
+<dom-module id="ble-observer">
+
+<template>
+  <style>
+    span {
+      margin: 10px;
+      width: 50px;
+      height: 26px;
+      border-radius: 10px;
+      padding: 10px 20px;
+      background-color: #000;
+      color: #ff8c00;
+      text-align: center;
+    }
+  </style>
+  <span>{{data}}</span>
+</template>
+
+  <script>
+    Polymer({
+      is: "ble-observer",
+      properties: {
+        uuid: {
+          type: String,
+          readonly: true,
+          value: ''
+        },
+        default: {
+          type: String,
+          value: ''
+        },
+        data: {
+          type: String,
+          value: ''
+        }
+      },
+      ready: function(){
+        this.data = this.default; 
+        //this.textContent = "Switch!";
+      }
+    });
+  </script>
+
+</dom-module>

@@ -1,0 +1,83 @@
+<link rel="import"
+  href="http://www.polymer-project.org/1.0/samples/components/polymer/polymer.html">
+
+<dom-module id="ble-service">
+
+<template>
+  <style>
+  </style>
+  <div>
+    <content id="container"></content>
+  </div>
+</template>
+
+<script>
+  Polymer({
+    is: "ble-service",
+    properties: {
+      uuid: {
+        type: String,
+        readonly: true
+      }
+    },
+    ready: function(){
+      var self = this;
+      setTimeout(function(){
+        self.setupController();
+      }, 2000);
+    },
+
+    updateState: function(state) {
+      var attributes = {
+        "IDLE":      "idle-text",
+        "SCANNING":  "scanning-text", 
+        "ERROR":     "error-text", 
+        "CONNECTED": "connected-text"
+      };
+      var bgColors = {
+        "IDLE":      "#666",
+        "SCANNING":  "#ff8c00", 
+        "ERROR":     "#f00", 
+        "CONNECTED": "#099"
+      };
+      var attr = attributes[state] || "default-text";
+      var bgColor = bgColors[state] || "#ccc";
+      var states = Polymer.dom(this).querySelectorAll('ble-state');
+      for (var i = 0; i < states.length; i++) {
+        states[i].setAttribute('data', states[i].getAttribute(attr));
+        states[i].style.backgroundColor = bgColor;
+      }
+    },
+
+    updateCharacteristic: function(uuid, value) {
+      var observers = Polymer.dom(this).querySelectorAll('ble-observer');
+      for (var i = 0; i < observers.length; i++) {
+        if (observers[i].getAttribute('uuid').toUpperCase() === uuid.toUpperCase()) {
+          observers[i].setAttribute('data', value);
+        }
+      }
+    },
+
+    setupController: function() {
+      var self = this;
+      var setting = new BLEBridgeSetting(this.uuid, function(uuid, state){
+          self.updateState(state);
+      });
+      var oFields = Polymer.dom(this).querySelectorAll('ble-observer');
+      for(var i=0;i<oFields.length;i++) {
+        var uuid = oFields[i].getAttribute('uuid');
+        setting.addObserveDestination(uuid, function(uuid, value){
+            self.updateCharacteristic(uuid, value);
+        });
+      }
+      var wFields = Polymer.dom(this).querySelectorAll('ble-setter');
+      for(var i=0;i<wFields.length;i++) {
+          var uuid = wFields[i].getAttribute('uuid');
+          setting.addWriteDestination(uuid);
+      }
+      BLEBridge.connect(setting)
+    }
+  });
+</script>
+
+</dom-module>

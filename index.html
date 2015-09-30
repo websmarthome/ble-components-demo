@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Web SmartHome Demo 01</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta property="og:title" content="Web SmartHome 01">
+    <meta property="og:image" content="http://litelite.net/img/icon_01.png">
+    <meta property="og:description" content="Web SmartHome Demo Controller 01">
+
+    <script src="http://www.polymer-project.org/1.0/samples/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!--<script src="webcomponentsjs/webcomponents.js"></script>-->
+    <link rel="import" href="ble-components.html">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+    body {
+      background-color: #eee;
+      background-image: linear-gradient(180deg, rgba(0, 150, 150, 1) 0%, rgba(0, 255, 255, 0.5) 50%, rgba(0, 150, 150, 1));
+      background-position: top left;
+      background-size: cover;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    h1,h2 {
+      color: #fff;
+    }
+    </style>
+  </head>
+  <body>
+
+  <h1 style="text-align:center;">Web SmartHome</h1>
+  <h2 style="text-align:center;">Demo Controller 01</h2>
+
+  <hr />
+  <br />
+
+  <ble-service uuid="7F93D614-920A-48B0-8910-B3694E06E0FA">
+
+    <div style="text-align:center;">
+    <ble-state default-text="NO CONNECTION" 
+      idle-text="NO CONNECTION" 
+      scanning-text="SEARCHING" 
+      connected-text="CONNECTED" 
+      error-text="ERROR"></ble-state> 
+    </div>
+      
+    <br />
+    <hr />
+    <br />
+
+    <!--
+    <ble-observer uuid="3A7F1423-171B-4B56-976B-4B2CE5012E62" default="10"></ble-observer> 
+    
+    <br /><br />
+    <hr />
+    <br /><br />
+    -->
+
+    <div id="buttons" style="text-align: center;">
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="01" display="01"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="02" display="02"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="03" display="03"></ble-setter>
+
+    <br /><br /><br />
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="04" display="04"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="05" display="05"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="06" display="06"></ble-setter>
+
+    <br /><br /><br />
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="07" display="07"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="08" display="08"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="09" display="09"></ble-setter>
+
+    <br /><br /><br />
+
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="10" display="10"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="11" display="11"></ble-setter>
+    <ble-setter uuid="06AFE76A-7859-4D78-B918-035AA960ED56" data="12" display="12"></ble-setter>
+
+    <br /><br /><br />
+    </div>
+
+  </ble-service>
+
+  </body>
+</html>
+
