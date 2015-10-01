@@ -30,6 +30,8 @@
 </ble-service>
 ```
 
+<img src="img/tv_controller_ss.png" width="200" height="356"/>
+
 `example02`
 
 ```html
@@ -52,6 +54,8 @@
 
 </ble-service>
 ```
+
+<img src="img/ac_controller_ss.png" width="200" height="356"/>
 
 ## PREPARATION
 
